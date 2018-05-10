@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+{% if response %}
+    {{ response }}
+    <a name="goback" type="button" href="/tellifprime">Go back</a>
+{% else %}
+    <strong>Blimey! This site is so bloody ducked.</strong>
+{% endif %}
+</body>
+</html>
