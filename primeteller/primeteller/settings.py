@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'primeteller.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pmnprpva',
+        'USER': 'pmnprpva',
+        'PASSWORD': 'xZ55InlxjPaFCMCRlAo-GbKlTHy3RLqU',
+        'HOST': 'tantor.db.elephantsql.com',
+        'PORT': '5432'
     }
 }
 
@@ -117,5 +121,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 STATIC_URL = '/static/'

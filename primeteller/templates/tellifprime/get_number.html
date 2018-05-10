@@ -1,20 +1,29 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'tellifprime/style.css' %}"/>
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> Tell if it's a Prime Number</title>
+    <title>Number-Fun</title>
+    <style>
+    form {
+    display: block;
+    margin-top: 15em;
+    margin-left: 25em;
+    }
+</style>
 </head>
 <body>
 <form role='form' method="post" action="show_result">
     {% csrf_token %}
     {% for field in form.visible_fields %}
     {{ field.errors }}
-    {{ field.help_text }}
+    <strong> {{ field.help_text }} </strong>
     {{ field }}
     {% endfor %}
-    <button type="submit" name="submit" value="Check">Check</button>
+    <input type="submit" name="submit" value="Check" />
 </form>
-
-
 </body>
 </html>

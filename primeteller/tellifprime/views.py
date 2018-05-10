@@ -5,6 +5,7 @@ from .forms import NumberForm
 
 def index(request):
     form = NumberForm()
+
     if request.method == 'POST':
         if form.is_valid():
             form.save(commit=True)
@@ -47,10 +48,10 @@ def is_perfect_cube(n):
 
 def is_prime(n):
     if n == 2:
-        return "It's Prime!"
+        return "{} is a Prime Number.".format(n)
 
     if n <= 0:
-        return "Don't fool yourself"
+        return "Don't fool yourself!"
 
     if n == 1:
         return "It's unity. " \
@@ -61,19 +62,19 @@ def is_prime(n):
         for i in range(2, int((n ** 0.5) + 1)):
             if n % i == 0:
                 if is_perfect_square(n) and is_perfect_cube(n):
-                    return "It's a perfect square of {} and a perfect cube of {}. ".format(int(n ** 0.5),
+                    return "{} is a perfect square of {} and a perfect cube of {}. ".format(n, int(n ** 0.5),
                                                                                            int(round(n ** (1. / 3))))
                 if is_perfect_square(n):
-                    return "Not a prime number. " \
-                           "It is a perfect square of {}. \n ".format(int(n ** 0.5))
+                    return "{} is not a prime number. " \
+                           "It is a perfect square of {}. \n ".format(n, int(n ** 0.5))
 
                 if is_perfect_cube(n):
-                    return "Not a prime number. " \
-                           "It is a perfect cube of {}. \n ".format(int(round(n ** (1. / 3))))
+                    return "{} is not a prime number. " \
+                           "It is a perfect cube of {}. \n ".format(n, int(round(n ** (1. / 3))))
 
-                return "Not a Prime Number! "
+                return "{} is not a Prime Number! ".format(n)
 
-    return "It's a Prime Number. Believe the machine."
+    return "{} is a Prime Number. Believe the machine.".format(n)
 
 
 def show_result(request):
